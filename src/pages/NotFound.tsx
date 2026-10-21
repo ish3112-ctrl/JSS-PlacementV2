@@ -1,0 +1,1 @@
+import { Link } from 'react-router-dom';import { Compass } from 'lucide-react';export function NotFound(){return <div className="not-found"><div className="empty-icon"><Compass size={25}/></div><h1>Page not found</h1><p>This route doesn't exist. At least the router is being honest about it.</p><Link className="primary-button" to="/">Return to company directory</Link></div>}

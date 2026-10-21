@@ -1,0 +1,3 @@
+import type { Config } from 'tailwindcss';
+import tailwindcssAnimate from 'tailwindcss-animate';
+export default {darkMode:['class'],content:['./index.html','./src/**/*.{ts,tsx}'],theme:{extend:{fontFamily:{heading:['Outfit','sans-serif'],body:['Inter','sans-serif']},colors:{navy:'hsl(var(--navy))','super-dream':'#7c3aed',dream:'#2563eb',standard:'#16a34a',regular:'#d97706',expert:'hsl(var(--expert))',advanced:'hsl(var(--advanced))',pro:'hsl(var(--pro))',beginner:'hsl(var(--beginner))'},keyframes:{glow:{'0%,100%':{opacity:'1'},'50%':{opacity:'.55'}}},animation:{glow:'glow 2s ease-in-out infinite'}}},plugins:[tailwindcssAnimate]} satisfies Config;
