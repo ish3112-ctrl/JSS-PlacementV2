@@ -30,10 +30,14 @@ async function fetchCompanies(): Promise<CompanySummary[]> {
     .select('company_id, short_json')
     .order('company_id', { ascending: true });
   throwOnError(error, 'company_json');
-  return (data ?? []).map((row) => normalizeCompanySummary({
+  const companies = (data ?? []).map((row) => normalizeCompanySummary({
     company_id: row.company_id,
     short_json: row.short_json,
   }));
+  if (companies.length === 0) {
+    throw new Error('Supabase returned no company rows. Check that public.company_json is populated and the anon key can SELECT from it.');
+  }
+  return companies;
 }
 
 async function fetchCompanyProfile(id: number): Promise<CompanyProfile> {
